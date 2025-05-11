@@ -48,7 +48,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import xgboost as xgb
 import pandas as pd
-import nest_asyncio
 import uvicorn
 # Your utility functions and objects (assumed to be defined somewhere)
 # from your_module import predict_target, predict_health_condition, universal_scaler
@@ -105,8 +104,6 @@ class HealthInput(BaseModel):
     resting_heart_rate: float
     bmi: float
     age: int
-
-nest_asyncio.apply()
 
 def predict_target(model, scaler, model_features, **kwargs):
     # Full feature list the scaler was trained on
